@@ -14,4 +14,10 @@ use App\Http\Controllers\ProductosController;
 |
 */
 
-Route::get('/', [ProductosController::class, 'consultar']);
+Route::get('/', [ProductosController::class, 'consultar']
+)->name('home');
+Route::get('/productos',function(){
+    return view('productos.alta');
+})->name('catalogo_productos');
+Route::post('/productos/alta',[ProductosController::class,'alta']);
+Route::get('/productos/detalle/{id}',[ProductosController::class,'detalle']);

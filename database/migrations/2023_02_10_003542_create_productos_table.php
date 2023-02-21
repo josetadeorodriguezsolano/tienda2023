@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('detalle');
             $table->decimal('precio',12,2);
             $table->unsignedInteger('existencia');
-            $table->decimal('envio',12,2);
+            $table->decimal('envio',12,2)->default('0');
             $table->timestamps();
 
             $table->index('nombre');
