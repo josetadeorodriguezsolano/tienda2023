@@ -8,6 +8,11 @@ use App\Http\Requests\AltaProductoRequest;
 
 class ProductosController extends Controller
 {
+    public function show()
+    {
+        return Producto::select(['id','nombre','precio'])->take(20)->get();
+    }
+
     public function consultar()
     {
         //$productos = Producto::all();
