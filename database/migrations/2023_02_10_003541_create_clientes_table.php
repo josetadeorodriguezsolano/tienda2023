@@ -16,9 +16,14 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('apellido')->default('perez');
+            $table->string('apellido');
             $table->text('direccion')->nullable();
+            $table->string('password')->default('Sin passowrd');
+            $table->string('correo')->unique();
+            $table->string('token')->nullable()->default(null);
+            $table->date('vigencia')->nullable()->default(null);;
             $table->timestamps();
+
         });
     }
 

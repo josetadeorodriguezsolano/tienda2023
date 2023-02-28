@@ -1,6 +1,6 @@
 @extends('layouts.general')
 
-@section('titulo', 'Inicio')
+@section('titulo', 'Alta de productos')
 
 @section('main')
     @parent

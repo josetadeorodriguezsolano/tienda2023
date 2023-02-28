@@ -1,4 +1,9 @@
 <header>
     <h1>TIENDA DEL TECNM</h1>
-    <div><a href="/login">Login</a></div>
+    @if(Session::has('cliente'))
+        <h3>{{Session::get('cliente')->nombre}}</h3>
+        <div><a href="/clientes/logout">Logout</a></div>
+    @else
+        <div><a href="/clientes">Login</a></div>
+    @endif
 </header>

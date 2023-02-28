@@ -43,6 +43,20 @@ class ProductosController extends Controller
             abort(404);
     }
 
+    public function catalogo()
+    {
+        $productos = Producto::take(20)->get();
+        return view('productos.catalogo',["productos"=>$productos]);
+    }
+
+    public function modificar($id)
+    {
+        $producto = Producto::find($id);
+        if ($producto)
+            return view('productos.detalle',['producto'=>$producto]);
+        else
+            abort(404);
+    }
     //eliminar
     //modificar
 }
