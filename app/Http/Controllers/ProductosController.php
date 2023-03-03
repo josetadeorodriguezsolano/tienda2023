@@ -78,12 +78,24 @@ class ProductosController extends Controller
 //////////////////////////JQUERY///////////////////////////
     public function catalogoJquery()
     {
-        return view('productos.jquery.catalogo');
+        $productos = Producto::paginate(20);
+        return view('productos.jquery.catalogo',["productos"=>$productos]);
     }
 
     public function catalogoJqueryShow($pagina,$elementosPorPagina)
     {
         return Producto::offset(($pagina-1)*$elementosPorPagina)->take($elementosPorPagina)->get();
+    }
+
+    public function catalogoJqueryEliminar($id)
+    {
+        $producto = Producto::find($id);
+        if ($producto)
+        {
+            $producto->delete();
+            return 1;
+        }
+        return 0;
     }
 //////////////////////////////////////////////////////////////
     public function eliminar($id)

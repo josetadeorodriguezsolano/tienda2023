@@ -57,6 +57,9 @@
         };
         $scope.getProductos();
         $scope.paginaSiguiente = function() {
+            //$scope.productos.forEach(element => {
+                //element.nombre = "papel";
+            //});
             $scope.pagina++;
             $scope.getProductos();
         };

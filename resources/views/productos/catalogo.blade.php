@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-        @foreach ($productos as $producto)
+             @foreach ($productos as $producto)
                 <tr>
                     <td>{{$producto->id}}</td>
                     <td>{{$producto->nombre}}</td>
@@ -30,7 +30,7 @@
                     <td><a class="btnModificar" href="/productos/modificar">Modificar</a></td>
                     <td><a class="btnEliminar" href="/productos/modificar">Eliminar</a></td>
                 </tr>
-        @endforeach
+             @endforeach
             </tbody>
         </table>
         {{$productos->links()}}

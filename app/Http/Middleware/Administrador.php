@@ -16,7 +16,7 @@ class Administrador
      */
     public function handle(Request $request, Closure $next)
     {
-        if (session('cliente') && session('cliente')->correo == 'loberbrunner@schumm.info')
+        if (session('cliente') && session('cliente')->id == 1)
             return $next($request);
         else
             abort(401,'No estas autenticado');

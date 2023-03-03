@@ -28,6 +28,7 @@ Route::controller(ProductosController::class)->group(function () {
 
         Route::get('/productos/jquery/catalogo','catalogoJquery');
         Route::get('/productos/jquery/catalogo/show','catalogoJqueryShow');
+        Route::get('/productos/jquery/catalogo/eliminar/{id}','catalogoJqueryEliminar');
     });
 });
 

@@ -28,7 +28,7 @@
                     <td>{{$producto->existencia}}</td>
                     <td>{{$producto->detalle}}</td>
                     <td><a class="btnModificar" href="/productos/modificar">Modificar</a></td>
-                    <td><a class="btnEliminar" href="/productos/modificar">Eliminar</a></td>
+                    <td><button class="btnEliminar">Eliminar</a></td>
                 </tr>
         @endforeach
             </tbody>
@@ -45,5 +45,13 @@
 @endsection
 
 @section('scripts')
-
+<script >
+    $(".btnEliminar").click(function(){
+        let tr = $(this).parent().parent();
+        let id = tr.children().first().text();
+        $.get("/productos/jquery/catalogo/eliminar/"+id, function(data, status){
+            tr.remove();
+        });
+    });
+</script>
 @endsection
