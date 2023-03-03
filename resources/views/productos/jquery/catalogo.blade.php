@@ -39,3 +39,11 @@
 
 @section('aside')
 @endsection
+
+@section('head')
+    <script src="/js/jquery-3.6.3.min.js"></script>
+@endsection
+
+@section('scripts')
+
+@endsection

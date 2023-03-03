@@ -45,18 +45,48 @@ class ProductosController extends Controller
 
     public function catalogo()
     {
-        $productos = Producto::take(20)->get();
+        $productos = Producto::paginate(20);
         return view('productos.catalogo',["productos"=>$productos]);
     }
+//////////////////////////LIVEWIRE//////////////////////////
+    public function catalogoLivewire()
+    {
+        return view('productos.livewire.catalogo');
+    }
 
-    public function modificar($id)
+//////////////////////////ANGULAR///////////////////////////
+    public function catalogoAngular()
+    {
+        return view('productos.angular.catalogo');
+    }
+
+    public function catalogoAngularShow($pagina,$elementosPorPagina)
+    {
+        return Producto::offset(($pagina-1)*$elementosPorPagina)->take($elementosPorPagina)->get();
+    }
+
+    public function catalogoAngularEliminar($id)
     {
         $producto = Producto::find($id);
         if ($producto)
-            return view('productos.detalle',['producto'=>$producto]);
-        else
-            abort(404);
+        {
+            $producto->delete();
+            return 1;
+        }
+        return 0;
     }
-    //eliminar
-    //modificar
+//////////////////////////JQUERY///////////////////////////
+    public function catalogoJquery()
+    {
+        return view('productos.jquery.catalogo');
+    }
+
+    public function catalogoJqueryShow($pagina,$elementosPorPagina)
+    {
+        return Producto::offset(($pagina-1)*$elementosPorPagina)->take($elementosPorPagina)->get();
+    }
+//////////////////////////////////////////////////////////////
+    public function eliminar($id)
+    {
+    }
 }

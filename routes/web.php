@@ -18,8 +18,16 @@ Route::controller(ProductosController::class)->group(function () {
     Route::get('/productos/show','show');
     Route::middleware(['admin'])->group(function () {
         Route::post('/productos/alta','alta');
-        Route::get('/productos/modificar','modificar');
         Route::get('/productos/catalogo','catalogo');
+
+        Route::get('/productos/livewire/catalogo','catalogoLivewire');
+
+        Route::get('/productos/angular/catalogo','catalogoAngular');
+        Route::get('/productos/angular/catalogo/show/{pagina}/{elementosPorPagina}','catalogoAngularShow');
+        Route::get('/productos/angular/catalogo/eliminar/{id}','catalogoAngularEliminar');
+
+        Route::get('/productos/jquery/catalogo','catalogoJquery');
+        Route::get('/productos/jquery/catalogo/show','catalogoJqueryShow');
     });
 });
 

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo')</title>
     <link rel="stylesheet" href="/css/estilos.css">
+    @yield('head')
 </head>
 <body>
     @section('header')
@@ -22,5 +23,6 @@
     @section('footer')
         @include('layouts.componentes.footer')
     @show
+    @yield('scripts')
 </body>
 </html>
