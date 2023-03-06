@@ -41,13 +41,14 @@ class ClientesController extends Controller
                 $cliente->token = Hash::make($cliente->id.date("Y-m-d h:i:s"));
                 $cliente->vigencia = date("Y-m-d h:i:s");
                 $cliente->save();
-                return json_encode(['token'=>$cliente->token]);
-            }
-            else
-            {
-                return false;
+                unset($cliente->password);
+                unset($cliente->vigencia);
+                unset($cliente->created_at);
+                unset($cliente->updated_at);
+                return json_encode($cliente);
             }
         }
+        return "false";
     }
 
     public function logout()

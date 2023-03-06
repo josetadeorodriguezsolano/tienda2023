@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Middleware\VerifyCsrfToken;
 use PHPUnit\TextUI\XmlConfiguration\Group;
 
 use function PHPUnit\Framework\returnSelf;
@@ -37,7 +38,7 @@ Route::controller(ClientesController::class)->group(function () {
         return view('clientes.login');
     })->name('login');
     Route::post('/clientes/login','login');
-    Route::post('/clientes/loginMovil','loginMovil');
+    Route::post('/clientes/loginMovil','loginMovil')->withoutMiddleware(VerifyCsrfToken::class);
     Route::get('/clientes/logout','logout');
 });
 
