@@ -1,3 +1,4 @@
+<p>paginas 6</p>
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="Pagination Navigation">
         <ul class="pagination">

@@ -1,3 +1,4 @@
+<p>paginas 5</p>
 @if ($paginator->hasPages())
     <nav>
         <ul class="pagination">

@@ -12,14 +12,12 @@ class ClientesController extends Controller
 {
     public function login(LoginRequest $request)
     {
-        //Collection
         $cliente = Cliente::where('correo',$request->correo)->get()->first();
         if ($cliente)
         {
             if (Hash::check($request->password,$cliente->password))
             {
                 Session::put('cliente',$cliente);
-                //session('cliente',$cliente);
                 return redirect()->route('home');
             }
             else
@@ -32,7 +30,6 @@ class ClientesController extends Controller
 
     public function loginMovil(LoginRequest $request)
     {
-        //Collection
         $cliente = Cliente::where('correo',$request->correo)->get()->first();
         if ($cliente)
         {

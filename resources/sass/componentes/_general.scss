@@ -15,3 +15,11 @@ body{
         @extend .w3-panel;
     }
 }
+.producto{
+    @extend .w3-card-4;
+    @extend .w3-quarter;
+    @extend .w3-center;
+}
+.filtros{
+
+}

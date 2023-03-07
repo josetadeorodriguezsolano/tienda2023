@@ -1,3 +1,4 @@
+<p>paginas 4</p>
 @if ($paginator->hasPages())
     <div class="ui pagination menu" role="navigation">
         {{-- Previous Page Link --}}
