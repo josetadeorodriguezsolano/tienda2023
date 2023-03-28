@@ -5,7 +5,7 @@
 @section('main')
     @parent
     <main id='login'>
-        <form name="login" method="post" action="/clientes/loginMovil">
+        <form name="login" method="post" action="/clientes/login">
             @csrf
             <label>Correo</label>
             <input type='email' name='correo'><br>

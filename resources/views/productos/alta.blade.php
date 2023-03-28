@@ -6,11 +6,17 @@
     @parent
 <section id='altaProductos'>
     <h2>Alta de productos</h2>
-    <form name='altaProductos' method="post" action="/productos/alta">
+    <form name='altaProductos' enctype='multipart/form-data' method="post" action="/productos/alta">
         @csrf
         <label>Nombre</label>
         <input type='text' name='nombre' value="{{ old('nombre') }}"/>
         @error('nombre')
+            <span>{{ $message }}</span>
+        @enderror
+        <br>
+        <label>Imagen</label>
+        <input type="file" name="imagen"/>
+        @error('imagen')
             <span>{{ $message }}</span>
         @enderror
         <br>

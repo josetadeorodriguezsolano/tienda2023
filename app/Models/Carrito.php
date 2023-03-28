@@ -29,5 +29,17 @@ class Carrito extends Model
             $carrito->cantidad = 1;
         }
         $carrito->save();
+        //$carrito->producto()->nombre;
+        //$carrito->producto->nombre;
     }
+
+    public function producto()
+    {
+        return $this->hasOne(Producto::class,'id','producto_id');
+    }
+
+    /*public function productoX()
+    {
+        return Producto::find($this->producto_id);
+    }*/
 }

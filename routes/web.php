@@ -49,3 +49,7 @@ Route::middleware(['aut'])->group(function () {
     });
 });
 Route::post('/carrito/agregar',[CarritoController::class,'agregarPost']);
+
+Route::post('/producto/modificarImage',[ProductosController::class,'modificarImagen'])
+->withoutMiddleware(VerifyCsrfToken::class);
+

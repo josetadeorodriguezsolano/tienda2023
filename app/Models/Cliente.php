@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     use HasFactory;
+
+    public function carrito()
+    {
+        return $this->hasMany(Carrito::class);
+    }
+
+    protected $casts = [
+        'vigencia' => 'datetime',
+    ];
 }

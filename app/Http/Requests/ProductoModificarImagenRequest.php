@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AltaProductoRequest extends FormRequest
+class ProductoModificarImagenRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,9 @@ class AltaProductoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|min:5',
-            'imagen' => 'required|image|mimes:jpg|max:1024',
-            'precio' => 'required|decimal:2|gt:0',
-            'existencia' => 'required|integer|gt:0',
-            'envio' => 'required|gte:0',
-            'detalle' => 'required|min:5'
+            'id' => 'required|integer',
+            'token' => 'required',
+            'imagen' => 'required|image|mimes:jpg|max:10024',
         ];
     }
 }

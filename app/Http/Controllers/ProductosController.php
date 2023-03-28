@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 use App\Http\Requests\AltaProductoRequest;
+use App\Http\Requests\ProductoModificarImagenRequest;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Cliente;
+use Illuminate\Support\Carbon;
 
 class ProductosController extends Controller
 {
@@ -30,8 +34,25 @@ class ProductosController extends Controller
         $producto->envio = $request->input('envio');
         $producto->detalle = $request->input('detalle');
         $producto->save();
-        //return view('productos.alta');
-        route('catalogo_productos');
+        Storage::putFileAs('public',$request->file('imagen'),
+                           'imagenes/'.$producto->id.'.jpg');
+        return view('productos.alta');
+    }
+
+    public function modificarImagen(ProductoModificarImagenRequest $request)
+    {
+        $token = $request['token'];
+        $cliente = Cliente::where('token',$token)->get()->first();
+        if ($cliente && $cliente->id == 1){
+            $tiempo = date_diff(Carbon::now(),$cliente->vigencia);
+            if ($tiempo->d < 30)
+            {
+                Storage::putFileAs('public',$request->file('imagen'),
+                           'imagenes/'.$request->id.'.jpg');
+                return "ok";
+            }
+        }
+        return abort(404);
     }
 
     public function detalle($id)
