@@ -1,0 +1,31 @@
+@import 'bootstrap/scss/bootstrap';
+
+.title {
+    font-size: calc(1.525rem + 3.3vw);
+}
+
+body{
+    header{
+        h1{
+            @extend .title;
+        }
+    }
+}
+
+nav{
+    @extend .navbar;
+    @extend .navbar-dark;
+    @extend .bg-dark;
+    @extend .navbar-brand;
+    ul{
+        @extend .nav;
+        @extend .nav-pills;
+        @extend .nav-fill;
+        li{
+            @extend .nav-item;
+            a{
+                @extend .nav-link;
+            }
+        }
+    }
+}

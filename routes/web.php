@@ -53,3 +53,4 @@ Route::post('/carrito/agregar',[CarritoController::class,'agregarPost']);
 Route::post('/producto/modificarImage',[ProductosController::class,'modificarImagen'])
 ->withoutMiddleware(VerifyCsrfToken::class);
 
+Route::get('producto/{id}',[ProductosController::class,'find']);

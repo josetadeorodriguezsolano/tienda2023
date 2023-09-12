@@ -1,8 +1,8 @@
 <nav>
     <ul>
-        <li>Inicio</li>
-        <li>Ropa</li>
-        <li>Tecnologia</li>
-        <li>Linea blanca</li>
+        <li><a>Inicio</a></li>
+        <li><a>Ropa</a></li>
+        <li><a>Tecnologia</a></li>
+        <li><a>Linea blanca</a></li>
     </ul>
 </nav>

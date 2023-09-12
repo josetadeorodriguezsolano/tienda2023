@@ -12,9 +12,14 @@ use Illuminate\Support\Carbon;
 
 class ProductosController extends Controller
 {
+    public function find($id)
+    {
+        return Producto::find($id);
+    }
+
     public function show()
     {
-        return Producto::select(['id','nombre','precio'])->take(20)->get();
+        return Producto::select(['id','nombre','precio'])->take(60)->get();
     }
 
     public function consultar()

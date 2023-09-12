@@ -12,7 +12,11 @@
     @foreach ($productos as $producto)
         <article class="producto">
             <a href='/productos/detalle/{{$producto->id}}'>{{$producto->nombre}}</a><br>
-            <img src="/img/producto.png" width="60px"><br>
+            @if (file_exists(base_path()."/public/storage/imagenes/".$producto->id.".jpg"))
+                <img src="/storage/imagenes/{{$producto->id}}.jpg" width="60px"><br>
+            @else
+                <img src="/img/producto.png" width="60px"><br>
+            @endif
             {{$producto->precio}}
         </article>
     @endforeach
